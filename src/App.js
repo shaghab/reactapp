@@ -3,7 +3,18 @@ import './App.css';
 import Counter from './Counter.js';
 
 function App() {
-  return <Counter init="5" />;
+  return (
+    <>
+      Counter defined by {'<Counter init="10" />'} : <br />
+      <Counter init="10" /> <br />
+      <br />
+      Counter defined by {'<Counter init={5} />'} : <br />
+      <Counter init={5} /> <br />
+      <br />
+      Counter defined by {'<Counter />'} : <br />
+      <Counter /> <br />
+    </>
+  );
 }
 
 export default App;
