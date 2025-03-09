@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 
-function Counter({ init, end }) {
+function Counter({ init, end, autostart }) {
   init = parseInt(init || 0);
   end = parseInt(end || 0);
+  autostart = parseInt(autostart || 0);
   const [count, setCount] = useState(init);
   const [start, setStart] = useState(true); // true for displaying the Start button
 
@@ -22,6 +23,10 @@ function Counter({ init, end }) {
       clearInterval(timer);
     };
   });
+
+  useEffect(function () {
+    if (autostart) restart();
+  }, []);
 
   function restart() {
     setStart(false); // Hide the Start button

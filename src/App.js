@@ -10,9 +10,9 @@ function App() {
         var val = i < 2 ? '1' : '0'; // value of the "autostart" attribute
         return (
           <React.Fragment key={i}>
-            Counter {i} defined by{' '}
-            {`<Counter init='5' end='${10 + i}' />`} : <br />
-            <Counter init="5" end={10 + i} />
+            Counter {i} defined by
+            {`<Counter autostart='${val}' init='5' end='${10 + i}' />`} : <br />
+            <Counter autostart={val} init="5" end={10 + i} />
             <br />
             <br />
           </React.Fragment>
