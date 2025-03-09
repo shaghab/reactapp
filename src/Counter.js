@@ -27,10 +27,11 @@ function Counter({ init, end }) {
       <br />
       The counter is set to: {count}
       <br />
-      {(function () {
-        if (end && count >= end) return <b>Counter stopped</b>;
-        else return <i>Counter in progress</i>;
-      })()}
+      {end && count >= end ? (
+        <b>Counter stopped</b>
+      ) : (
+        <i>Counter in progress</i>
+      )}
     </>
   );
 }
