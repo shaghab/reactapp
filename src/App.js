@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       {[...Array(3).keys()].map(function (i) {
+        var val = i < 2 ? '1' : '0'; // value of the "autostart" attribute
         return (
           <React.Fragment key={i}>
             Counter {i} defined by{' '}
