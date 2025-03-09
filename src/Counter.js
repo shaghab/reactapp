@@ -1,9 +1,21 @@
+import { useState, useEffect } from 'react';
+
 function Counter() {
-  var count = 0;
-  setInterval(function () {
-    count++;
-    console.log('count =' + count);
-  }, 1000);
+  const [count, setCount] = useState(0);
+
+  useEffect(function () {
+    var timer = setInterval(function () {
+      setCount(count + 1);
+      console.log('count =' + count);
+    }, 1000);
+
+    // If a function is returned by useEffect(),
+    // it allows performing a treatment
+    // before each component update
+    return function () {
+      clearInterval(timer);
+    };
+  });
   return <>The counter is set to: {count}</>;
 }
 
