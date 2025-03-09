@@ -3,7 +3,7 @@ import './App.css';
 import Counter from './Counter.js';
 
 function App() {
-  return <Counter />;
+  return <Counter init="5" />;
 }
 
 export default App;

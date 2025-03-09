@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function Counter(props) {
+  var init = parseInt(props.init || 0);
+  const [count, setCount] = useState(init);
 
   useEffect(function () {
     var timer = setInterval(function () {
-      setCount(count + 1);
+      setCount((count) => count + 1);
       console.log('count =' + count);
     }, 1000);
 
@@ -16,7 +17,13 @@ function Counter() {
       clearInterval(timer);
     };
   });
-  return <>The counter is set to: {count}</>;
+  return (
+    <>
+      Initial value of the counter is: {init}
+      <br />
+      The counter is set to: {count}
+    </>
+  );
 }
 
 export default Counter;
