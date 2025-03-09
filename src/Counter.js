@@ -6,10 +6,6 @@ function Counter({ init, end }) {
   const [count, setCount] = useState(init);
   const [start, setStart] = useState(true); // true for displaying the Start button
 
-  function incr() {
-    setCount((count) => count + 1);
-  }
-
   useEffect(function () {
     if (!start) {
       // The Start button is not displayed; you can initiate the timer.
@@ -19,7 +15,7 @@ function Counter({ init, end }) {
           if (newCount >= end) setStart(true);
           return newCount;
         });
-      }, 1000); // 1 second
+      }, 1000);
     }
 
     return function () {
@@ -38,11 +34,11 @@ function Counter({ init, end }) {
       <br />
       End of the counter at: {end}
       <br />
-      The counter is set to: {count}
+      The counter is: {count}
       <br />
       {start ? (
         <>
-          <b>Counter stopped</b>
+          <b>Counter stopped</b>&nbsp;
           <button onClick={restart}>Start</button>
         </>
       ) : (
