@@ -6,7 +6,7 @@ import React from 'react';
 function App() {
   return (
     <>
-      {[0, 1, 2].map(function (i) {
+      {[...Array(3).keys()].map(function (i) {
         return (
           <React.Fragment key={i}>
             Counter {i} defined by{' '}
