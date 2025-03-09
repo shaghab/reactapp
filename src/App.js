@@ -5,14 +5,21 @@ import Counter from './Counter.js';
 function App() {
   return (
     <>
-      Counter defined by {"<Counter init='5' end='10'/ >"} : <br />
-      <Counter init="5" end="10" /> <br />
-      <br />
-      Counter defined by {'<Counter init={5} end={15} />'} : <br />
-      <Counter init={5} end={15} /> <br />
-      <br />
-      Counter defined by {'<Counter />'} : <br />
-      <Counter /> <br />
+      {(function () {
+        var jsx = [];
+        for (var i = 0; i < 3; i++) {
+          jsx.push(
+            <>
+              Counter {i} defined by{' '}
+              {`<Counter init='5' end='${10 + i}' />`} : <br />
+              <Counter init="5" end={10 + i} />
+              <br />
+              <br />
+            </>
+          );
+        }
+        return jsx;
+      })()}
     </>
   );
 }
