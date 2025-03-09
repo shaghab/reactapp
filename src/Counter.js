@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-function Counter(props) {
-  var init = parseInt(props.init || 0);
+function Counter({ init }) {
+  init = parseInt(init || 0);
   const [count, setCount] = useState(init);
 
   useEffect(function () {
