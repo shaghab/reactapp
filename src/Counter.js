@@ -42,11 +42,11 @@ function Counter({ init, end }) {
       <br />
       {start ? (
         <>
-          <i>Counter stopped</i>
+          <b>Counter stopped</b>
           <button onClick={restart}>Start</button>
         </>
       ) : (
-        <b>Counter in progress</b>
+        <i>Counter in progress</i>
       )}
     </>
   );
