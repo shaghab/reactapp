@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-function Counter() {
+function Counter({ setTotal }) {
   const [value, setValue] = useState('');
   const refCounter = useRef();
 
@@ -9,7 +9,14 @@ function Counter() {
   }, []);
 
   function change(event) {
-    setValue(event.target.value);
+    var newValue = parseInt(event.target.value || 0);
+
+    // New value in the field
+    setValue(newValue);
+
+    // New Total
+    setTotal((total) => total - value);
+    setTotal((total) => total + newValue);
   }
 
   function keydown(event) {
