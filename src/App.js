@@ -8,7 +8,7 @@ function App() {
   const [total, setTotal] = useState(0);
   return (
     <>
-      <Counter setTotal={setTotal} /> <hr />
+      <Counter focus setTotal={setTotal} /> <hr />
       <Counter setTotal={setTotal} /> <hr />
       <Counter setTotal={setTotal} /> <hr />
       <b>Total : {total}</b>

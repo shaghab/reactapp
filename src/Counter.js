@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 
-function Counter({ setTotal }) {
+function Counter({ setTotal, focus }) {
   const [value, setValue] = useState('');
   const refCounter = useRef();
 
   useEffect(function () {
-    refCounter.current.focus(); // refCounter.current represents the DOM element associated with that reference
+    // Give focus to the field if the "focus" attribute is indicated
+    if (focus) refCounter.current.focus();
   }, []);
 
   function change(event) {
