@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function Counter() {
-  const [value, setCount] = useState('');
+  const [value, setValue] = useState('');
+  const refCounter = useRef();
+
+  useEffect(function () {
+    refCounter.current.focus(); // refCounter.current represents the DOM element associated with that reference
+  }, []);
 
   function change(event) {
-    setCount(event.target.value);
+    setValue(event.target.value);
   }
 
   function keydown(event) {
@@ -18,7 +23,7 @@ function Counter() {
 
   return (
     <>
-      Counter: <input type="text" onChange={change} onKeyDown={keydown} /> <br />
+      Counter: <input type="text" onChange={change} onKeyDown={keydown} ref={refCounter} /> <br />
       <br />
       Input value: {value}
     </>
